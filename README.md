@@ -11,6 +11,6 @@ The website of Parthenon Studios...
 | | |
 | ---- | ----- |
 | **Name** | Christopher Gonzalez |
-| **Profile** | [@gchriswill](www.github.com/gchriswill) |
-| **Site** | [www.gchriswill.com](www.gchriswill.me) |
+| **Profile** | [@gchriswill](http://www.github.com/gchriswill) |
+| **Site** | [www.gchriswill.me](http://www.gchriswill.me) |
 | **Role** | All |
