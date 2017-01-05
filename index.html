@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+HTML5 markup By Christopher W. Gonzalez D.K.A "gchriswill" from Parthenon Studios
+Copyright (c) 2017 Parthenon Studios Ltd. All rights reserved.
+-->
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=false>
+		<meta name="description" content="Architecting fantasies,
+        designing dreams and developing realities... This is what we do at Parthenon Studios">
+
+		<meta name="keywords" content="parthenon, parthenon ltd, parthenon studios, parthenon studios ltd">
+		<meta name="author" content="Parthenon Studios Ltd">
+        <meta name="Copyright" content="Copyright 2017, Parthenon Studios Ltd. All Rights Reserved."/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="favicon.ico"/>
+
+        <!-- Material Icons via Google Web Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<title>Parthenon Studios</title>
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <a id="menu-link-button" href="#">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <a id="help-link-button" href="#" onclick="alertUser()">
+                <i class="material-icons">help</i>
+            </a>
+
+            <div id="logo-container"></div>
+
+        </main>
+
+        <style media="screen">
+
+            body {}
+
+            main {}
+
+			body, main {
+				position: fixed;
+			}
+
+            body, main, #logo-container{
+				top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+
+                margin: 0;
+                padding: 0;
+				width: 100%;
+                height: 100%;
+
+				overflow: hidden;
+
+				background-color: white;
+            }
+
+            #logo-container{
+                z-index: 100;
+				opacity: 0;
+
+                -webkit-transform: scale(0.75);
+                -ms-transform: scale(0.75);
+                transform: scale(0.75);
+
+                position: absolute;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url("parthenon_studios_branding_logo.png");
+            }
+
+            #help-link-button{
+                right: 5%;
+                left: auto;
+            }
+
+            #menu-link-button{
+            	visibility: hidden;
+                right: auto;
+                left: 5%;
+            }
+
+			#help-link-button, #menu-link-button {
+				position: absolute;
+				z-index: 101;
+				opacity: 0.5;
+				color: white;
+
+				top: 5%;
+				bottom: auto;
+				text-decoration: none;
+				text-shadow: 1px 1px 4px rgba(0,0,0, 0.5);
+			}
+
+			#help-link-button, #menu-link-button, #help-link-button i, #menu-link-button i {
+				padding: 0;
+				margin: 0;
+				width: 48px;
+				height: 48px;
+				font-size: 48px;
+			}
+
+        </style>
+
+        <script>
+
+            // DOMContentLoaded - for one time till browser clears cached memory.
+            // load - for every time the browser refreshes the page.
+            document.addEventListener("readystatechange", function(ev) {
+
+                // Initial Page Settings
+				if (document.readyState === "complete") {
+
+					function alertUser(){
+						alert("⚠️ Hi there!\n\nThank you for any interest that you might have in regards of 🏛 Parthen Studios Ltd and/or it's products. As for now, right this moment, 🏛's web infrastructure is currently being built.\n\nTo contact us or keep up-to-date with news about 🏛 or any of it's products, please visit our social media links below on this page, we'll ❤️ to hear from you.\n\nHope to see you again soon...");
+					}
+
+					var logo = document.getElementById("logo-container");
+
+					if(typeof(Storage) !== "undefined") {
+
+						if(!sessionStorage.initialLand){
+
+							// Initial Implementations
+							sessionStorage.initialLand = 1;
+			                logo.style.transition = "3s";
+			                logo.style.transform = "scale(1)";
+			                logo.style.opacity = "1";
+
+							alertUser();
+
+						}else{
+
+							logo.style.transform = "scale(1)";
+							logo.style.opacity = "1";
+
+						}
+
+					}else {
+						logo.style.transform = "scale(1)";
+						logo.style.opacity = "1";
+						alert("Your browser does not support web storage. This means that is outdated or very old...\n\nPlease update or install the lastest version of your current browser in order for us to provide a much better experience...");
+					}
+				}
+
+            }, false);
+
+        </script>
+
+    </body>
+
+</html>
