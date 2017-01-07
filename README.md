@@ -14,3 +14,7 @@ The website of Parthenon Studios...
 | **Profile** | [@gchriswill](http://www.github.com/gchriswill) |
 | **Site** | [www.gchriswill.me](http://www.gchriswill.me) |
 | **Role** | All |
+
+#### NO LICENSE
+
+Copyright 2017. Parthenon LLC. All Rights Reserved.
