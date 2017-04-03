@@ -45,17 +45,29 @@ Copyright (c) 2017 Parthenon Studios Ltd. All rights reserved.
                 <i class="material-icons">menu</i>
             </a>
 
-            <a id="help-link-button" onclick="alertUser(event)">
+            <a id="help-link-button" href="javascript:void(0);" onclick="alertUser(event)">
                 <i class="material-icons">help</i>
             </a>
 
             <div id="logo-container"></div>
 
+			<a id="action-link-button" href="javascript:void(0);" onclick="toogleShareAction(event)">
+                <i id="action-link-button-icon" class="material-icons action-button-icon">share</i>
+            </a>
+
+			<a id="facebook-link-button" href="javascript:void(0);"></a>
+			<a id="twitter-link-button" href="https://twitter.com/parthenonus"></a>
+			<a id="google-link-button" href="https://plus.google.com/+parthenonstudios"></a>
+			<a id="tumblr-link-button" href="http://tumblr.parthenonstudios.com"></a>
+
         </main>
 
         <style media="screen">
 
-            body {}
+            body {
+				-webkit-font-smoothing     : antialiased;
+				-webkit-backface-visibility: hidden;
+            }
 
             main {}
 
@@ -100,33 +112,110 @@ Copyright (c) 2017 Parthenon Studios Ltd. All rights reserved.
             }
 
             #menu-link-button{
-            	visibility: hidden;
                 right: auto;
                 left: 5%;
             }
 
-			#help-link-button, #menu-link-button {
+			#help-link-button, #menu-link-button{
 				position: absolute;
 				z-index: 101;
-				opacity: 0.5;
+				opacity: 1;
 				color: white;
 
 				top: 5%;
 				bottom: auto;
 				text-decoration: none;
-				text-shadow: 1px 1px 4px rgba(0,0,0, 0.5);
+				text-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+			}
+
+			#action-link-button{
+				position: absolute;
+				z-index: 101;
+				opacity: 1;
+				color: white;
+
+				padding: 0;
+				margin: 0;
+				width: 72px;
+				height: 72px;
+
+				right: 5%;
+                left: auto;
+
+				top: auto;
+				bottom: 5%;
+				background-color: white;
+				text-decoration: none;
+				text-shadow: 1px 1px 3px rgba(0,0,0, 0.4);
+
+				border-radius: 36px;
+
+				-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+				box-shadow        : 2px 2px 6px rgba(0, 0, 0, 0.35);
+			}
+
+			#action-link-button i{
+				position: absolute;
+				left: 10px;
+				top: 12px;
 			}
 
 			#help-link-button:hover{
 				cursor: help;
+				transition: 0.3s;
+				transform: scale(0.9);
+				text-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
 			}
 
-			#help-link-button, #menu-link-button, #help-link-button i, #menu-link-button i {
+			#help-link-button, #menu-link-button,
+			#help-link-button i, #menu-link-button i, #action-link-button i{
 				padding: 0;
 				margin: 0;
 				width: 48px;
 				height: 48px;
 				font-size: 48px;
+			}
+
+			#facebook-link-button, #twitter-link-button, #google-link-button, #tumblr-link-button {
+				z-index: 100;
+				position: absolute;
+				visibility: hidden;
+				opacity: 0;
+
+				padding: 12px;
+				margin: 0;
+				width: 48px;
+				height: 48px;
+
+				top: auto;
+				left: auto;
+
+				right: 5%;
+				bottom: 5%;
+
+				background-size: 48px;
+				background-color: white;
+				background-position: center;
+				background-repeat: no-repeat;
+
+				text-decoration: none;
+
+			}
+
+			#facebook-link-button{
+				background-image: url("facebook.png");
+			}
+
+			#twitter-link-button{
+				background-image: url("twitter.png");
+			}
+
+			#google-link-button{
+				background-image: url("google.png");
+			}
+
+			#tumblr-link-button{
+				background-image: url("tumblr.png");
 			}
 
         </style>
@@ -176,6 +265,131 @@ Copyright (c) 2017 Parthenon Studios Ltd. All rights reserved.
 			function alertUser(ev){
 
 				alert("⚠️ Hi there!\n\nThank you for any interest that you might have in regards of Parthen Studios Ltd and/or it's products. As for now, right this moment, Parthenon Studios's web infrastructure is currently being built.\n\nTo contact us or keep up-to-date with news and releases, please visit our social media links below on this page, we'll ❤️ to hear from you.\n\nHope to see you again soon...");
+
+			}
+
+			function toogleShareAction(ev){
+
+				var actionButton = document.getElementById("action-link-button");;
+				var actionIcon = document.getElementById("action-link-button-icon");
+				var facebookButton = document.getElementById("facebook-link-button");
+				var twitterButton = document.getElementById("twitter-link-button");
+				var googleButton = document.getElementById("google-link-button");
+				var tumblrButton = document.getElementById("tumblr-link-button");
+
+				if (actionIcon.innerHTML !== "close"){
+
+					actionIcon.transition = "0.3s";
+					actionIcon.innerHTML = "close";
+					actionIcon.style.left = "12px";
+
+					actionButton.style.transition = "0.3s";
+					actionButton.style.boxShadow = "-1px -1px 4px rgba(0, 0, 0, 0.35)";
+					actionButton.style.textShadow = "-1px -1px 2px rgba(0,0,0, 0.4)";
+					actionButton.style.transform = "scale(0.8) rotate(0.5turn)";
+
+					facebookButton.style.transition = "0.3s";
+					facebookButton.style.opacity = "0.5";
+					facebookButton.style.visibility = "visible";
+					facebookButton.style.transform = "translateY(-80px) scale(0.5)";
+
+					twitterButton.style.transition = "0.3s";
+					twitterButton.style.opacity = "0.5";
+					twitterButton.style.visibility = "visible";
+					twitterButton.style.transform = "translateY(-160px) scale(0.5)";
+
+					googleButton.style.transition = "0.3s";
+					googleButton.style.opacity = "0.5";
+					googleButton.style.visibility = "visible";
+					googleButton.style.transform = "translateX(-80px) scale(0.5)";
+
+					tumblrButton.style.transition = "0.3s";
+					tumblrButton.style.opacity = "0.5";
+					tumblrButton.style.visibility = "visible";
+					tumblrButton.style.transform = "translateX(-160px) scale(0.5)";
+
+				}else{
+
+					actionIcon.transition = "0.3s";
+					actionIcon.innerHTML = "share";
+					actionIcon.style.left = "10px";
+
+					actionButton.style.transition = "0.3s";
+					actionButton.style.boxShadow = "2px 2px 6px rgba(0, 0, 0, 0.35)";
+					actionButton.style.textShadow = "1px 1px 3px rgba(0,0,0, 0.4)";
+					actionButton.style.transform = "scale(1) rotate(1turn)";
+
+					facebookButton.style.transition = "0.3s";
+					facebookButton.style.opacity = "0";
+					facebookButton.style.visibility = "hidden";
+					facebookButton.style.transform = "translateY(0) scale(1)";
+
+					twitterButton.style.transition = "0.3s";
+					twitterButton.style.opacity = "0";
+					twitterButton.style.visibility = "hidden";
+					twitterButton.style.transform = "translateY(0px) scale(1)";
+
+					googleButton.style.transition = "0.3s";
+					googleButton.style.opacity = "0";
+					googleButton.style.visibility = "hidden";
+					googleButton.style.transform = "translateX(0px) scale(1)";
+
+					tumblrButton.style.transition = "0.3s";
+					tumblrButton.style.opacity = "0";
+					tumblrButton.style.visibility = "hidden";
+					tumblrButton.style.transform = "translateX(0px) scale(1)";
+
+				}
+
+				facebookButton.addEventListener("mouseover", function(){
+					facebookButton.style.transition = "0.3s";
+					facebookButton.style.opacity = "0.25";
+					facebookButton.style.transform = "translateY(-80px) scale(0.4)";
+				});
+
+				facebookButton.addEventListener("mouseout", function(){
+					facebookButton.style.transition = "0.3s";
+					facebookButton.style.opacity = "0.5";
+					facebookButton.style.transform = "translateY(-80px) scale(0.5)";
+				});
+
+				twitterButton.addEventListener("mouseover", function(){
+					twitterButton.style.transition = "0.3s";
+					twitterButton.style.opacity = "0.25";
+					twitterButton.style.transform = "translateY(-160px) scale(0.4)";
+				});
+
+				twitterButton.addEventListener("mouseout", function(){
+					twitterButton.style.transition = "0.3s";
+					twitterButton.style.opacity = "0.5";
+					twitterButton.style.transform = "translateY(-160px) scale(0.5)";
+				});
+
+				googleButton.addEventListener("mouseover", function(){
+					googleButton.style.transition = "0.3s";
+					googleButton.style.opacity = "0.25";
+					googleButton.style.transform = "translateX(-80px) scale(0.4)";
+				});
+
+				googleButton.addEventListener("mouseout", function(){
+					googleButton.style.transition = "0.3s";
+					googleButton.style.opacity = "0.5";
+					googleButton.style.transform = "translateX(-80px) scale(0.5)";
+				});
+
+				tumblrButton.addEventListener("mouseover", function(){
+					tumblrButton.style.transition = "0.3s";
+					tumblrButton.style.opacity = "0.25";
+					tumblrButton.style.transform = "translateX(-160px) scale(0.4)";
+				});
+
+				tumblrButton.addEventListener("mouseout", function(){
+					tumblrButton.style.transition = "0.3s";
+					tumblrButton.style.opacity = "0.5";
+					tumblrButton.style.transform = "translateX(-160px) scale(0.5)";
+				});
+
+				ev.preventDefault();
 
 			}
 
