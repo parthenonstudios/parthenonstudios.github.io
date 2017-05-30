@@ -3,7 +3,7 @@
 
 ---
 #### About:
-The website of Parthenon Studios...
+The website of Parthenon Studios Ltd...
 
 ---
 #### Team:
